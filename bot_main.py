@@ -118,5 +118,5 @@ class MyClient(discord.Client):
 
 
 client = MyClient()
-client.run("Token")
+client.run("token")
 
