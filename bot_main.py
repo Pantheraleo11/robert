@@ -5,9 +5,9 @@ import log
 
 
 class MyClient(discord.Client):
-    #einlogen
+    #login
     async def on_ready(self):
-        print("Ich habe mich eingeloggt. Beep bop.")
+        print("I'm lock in. Beep bop.")
         log.write_log("bot on","bot")
         funktion.flag_sero(0)
         print(funktion.flag_team(2))
@@ -26,7 +26,7 @@ class MyClient(discord.Client):
 
         #team /team wahl
         if message.content.startswith("bot team start") and funktion.flag_team(2) == 1:
-            await message.channel.send("Teams werden gesucht")
+            await message.channel.send("Loking for team")
             await message.channel.send("|")
             funktion.flag_team(0)
             user = open("user.txt","r")
@@ -39,46 +39,46 @@ class MyClient(discord.Client):
                     team1 = team1 + [userr[n]]
                 elif n % 2 == 0:
                     team2 = team2 + [userr[n]]
-            await message.channel.send("Speiler Team 1 :")
+            await message.channel.send("Player Team 1 :")
             for n in range(len(team1)):
                 n = n + 1
                 print(str(team1[n-1]))
                 await message.channel.send(team1[n-1])
             await message.channel.send("|")
-            await message.channel.send("Spieler Team 2 :")
+            await message.channel.send("Player Team 2 :")
             for n in range(len(team2)):
                 n = n + 1
                 await message.channel.send(team2[n-1])
             await message.channel.send("|")
-            await message.channel.send("Fertig")
+            await message.channel.send("Done!")
             funktion.clear_user()
-            log.write_log("Teamwahl beendet", "Bot")
+            log.write_log("Team select finished", "Bot")
 
         #team
         elif message.content.startswith("bot team"):
-            log.write_log("team wird erstellt", message.author)
-            await message.channel.send("Teamwahl wird gestartet")
+            log.write_log("Team selection started", message.author)
+            await message.channel.send("Team selection started")
             funktion.flag_team(1)
 
         #team/spieler sammeln
         elif str(message.channel) == "bot"  and funktion.flag_team(2) == 1:
-            log.write_log("nimt an der wahl tein",message.author)
+            log.write_log("entered the team selection",message.author)
             funktion.add_user(message.author,message.content)
 
         #random
         if message.content.startswith("bot random"):
-            log.write_log("random nubmer",message.author)
-            await message.channel.send("Erstezahl eingeben")
+            log.write_log("random number",message.author)
+            await message.channel.send("First Number")
             funktion.flag_random(1)
         elif funktion.flag_random(2) == 1:
             global erste_zahl
             erste_zahl = int(message.content)
-            await message.channel.send("zweite Zahl")
+            await message.channel.send("Second number")
             funktion.flag_random(3)
         elif funktion.flag_random(2) == 3:
             zweite_zahl = int(message.content)
             zahl = random.randint(erste_zahl,zweite_zahl)
-            await message.channel.send("Die Zahl ist: " + str(zahl))
+            await message.channel.send("Your number is: " + str(zahl))
 
         #würfel
         if message.content.startswith("bot dice"):
@@ -100,7 +100,7 @@ class MyClient(discord.Client):
             for i in range(len(text_zahl)):
                 zahl = zahl + int(text_zahl[i]) * multiplikator[i]
             zahl = random.randint(1,zahl)
-            await message.channel.send("Der Würfel sagt: " + str(zahl))
+            await message.channel.send("The dice says: " + str(zahl))
 
         #münze
         if message.content.startswith("bot coin") or message.content.startswith("bot toss"):
