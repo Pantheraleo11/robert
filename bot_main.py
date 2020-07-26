@@ -1,6 +1,6 @@
 import discord
 import random
-import tree01
+from tree01 import settings
 from tree01 import funktion
 import log
 
@@ -119,5 +119,5 @@ class MyClient(discord.Client):
 
 if __name__ == "__main__":
     client = MyClient()
-    client.run(tree01.settings.readSettings("settings.txt", "token"))
+    client.run(settings.readSetting("token"))
 
