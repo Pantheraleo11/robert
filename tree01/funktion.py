@@ -48,16 +48,16 @@ def flag_random(state):
         return f1
 
 def clear_user():
-    user = open("user.txt", "w")
+    user = open("../user.txt", "w")
     user.close()
 
 def add_user(name,text):
-    user = open("user.txt", "r")
+    user = open("../user.txt", "r")
     user = user.read()
     if str(name) in user and str(text) in user:
         print("test")
         return
-    user = open("user.txt", "a")
+    user = open("../user.txt", "a")
     user.write(str(name)+" "+str(text)+"\n")
     print("test2")
     user.close()

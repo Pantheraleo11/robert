@@ -1,6 +1,7 @@
 import discord
 import random
-import funktion
+import tree01
+from tree01 import funktion
 import log
 
 
@@ -63,7 +64,7 @@ class MyClient(discord.Client):
         #team/spieler sammeln
         elif str(message.channel) == "bot"  and funktion.flag_team(2) == 1:
             log.write_log("nimt an der wahl tein",message.author)
-            funktion.add_user(message.author,message.content)
+            funktion.add_user(message.author, message.content)
 
         #random
         if message.content.startswith("bot random"):
@@ -116,7 +117,7 @@ class MyClient(discord.Client):
 
 
 
-
-client = MyClient()
-client.run("Token")
+if __name__ == "__main__":
+    client = MyClient()
+    client.run(tree01.settings.readSettings("settings.txt", "token"))
 
