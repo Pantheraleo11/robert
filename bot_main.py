@@ -16,7 +16,7 @@ class MyClient(discord.Client):
         if message.author == client.user:
             return
 
-        switch.switch(message)
+        await message.channel.send(switch.switch(message))
 
         #help anfragen
         if message.content.startswith("bot help team"):
