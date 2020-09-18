@@ -23,3 +23,14 @@ def toss(message):
     if number == 2:
         return "Tail\ntoss a coin to your witcher"
 
+def random(message):
+    try:
+        m = message.content.split(" ")
+        start = int(m[1])
+        stop = int(m[2])
+    except:
+        start = 1
+        stop = 6
+
+    r = str(randint(start, stop))
+    return r

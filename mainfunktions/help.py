@@ -7,8 +7,8 @@ def help(message):
         flag = ""
 
     if flag == "":
-        out = "Hilfe für Zufallszahlen:      bot help random\n" \
-            "Hilfe für Zufälligesteam:   bot help team"
+        out = "Helppage for random numbers:      /help random\n" \
+            "Helppage for random teambuilding:   /help team"
         return out
     elif flag == "team":
         out = "Es funktionirt nur im Bot chat\n" \
@@ -18,8 +18,7 @@ def help(message):
             "3. Es geht los mit:     bot team start"
         return out
     elif flag == "random":
-        out = "Für eine beliebige Zahl:                                      bot random\n" \
-            "Für einen Münzwurf:                                          bot coin\n" \
-            "Für einen Würfel mit 6 Seiten:                          bot dice\n" \
-            "Für einen Würfel mit belibig vielen Steiten:   bot dice 20 / belibige zahl"
+        out = "For random number:                                      /random\n" \
+            "For coin:                                                /coin\n" \
+            "For dice:                                                /dice"
         return out

@@ -8,4 +8,5 @@ def switch(message):
         '/dice': random_answer.dice(message),
         '/coin': random_answer.coin(message),
         '/toss': random_answer.toss(message),
+        '/random': random_answer.random(message),
     }.get(m[0])

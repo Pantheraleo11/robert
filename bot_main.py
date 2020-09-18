@@ -17,15 +17,7 @@ class MyClient(discord.Client):
             return
 
         await message.channel.send(switch.switch(message))
-"""
-        #help anfragen
-        if message.content.startswith("bot help team"):
-            await  message.channel.send(funktion.help("team"))
-        elif message.content.startswith("bot help random"):
-            await  message.channel.send(funktion.help("random"))
-        elif message.content.startswith("bot help") or message.content.startswith("help"):
-            await message.channel.send(funktion.help("help"))
-"""
+
         #team /team wahl
         if message.content.startswith("bot team start") and funktion.flag_team(2) == 1:
             await message.channel.send("Teams werden gesucht")
@@ -66,25 +58,6 @@ class MyClient(discord.Client):
         elif str(message.channel) == "bot"  and funktion.flag_team(2) == 1:
             log.write_log("nimt an der wahl tein", message.author)
             funktion.add_user(message.author, message.content)
-
-        #random
-        if message.content.startswith("bot random"):
-            log.write_log("random nubmer", message.author)
-            await message.channel.send("Erstezahl eingeben")
-            funktion.flag_random(1)
-        elif funktion.flag_random(2) == 1:
-            global erste_zahl
-            erste_zahl = int(message.content)
-            await message.channel.send("zweite Zahl")
-            funktion.flag_random(3)
-        elif funktion.flag_random(2) == 3:
-            zweite_zahl = int(message.content)
-            zahl = random.randint(erste_zahl,zweite_zahl)
-            await message.channel.send("Die Zahl ist: " + str(zahl))
-
-
-
-
 
 
 if __name__ == "__main__":
