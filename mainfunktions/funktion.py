@@ -1,22 +1,3 @@
-def help(flag):
-    if flag == "help":
-        t = "Hilfe für Zufallszahlen:      bot help random\n" \
-            "Hilfe für Zufälligesteam:   bot help team"
-        return str(t)
-    elif flag == "team":
-        t = "Es funktionirt nur im Bot chat\n" \
-            "1. Um die Teamauswahl zu starten:   bot team\n" \
-            "2. Dann schreibt jeder der mitmachen möchte\n" \
-            "    etwas in den Bot chat\n" \
-            "3. Es geht los mit:     bot team start"
-        return str(t)
-    elif flag == "random":
-        t = "Für eine beliebige Zahl:                                      bot random\n" \
-            "Für einen Münzwurf:                                          bot coin\n" \
-            "Für einen Würfel mit 6 Seiten:                          bot dice\n" \
-            "Für einen Würfel mit belibig vielen Steiten:   bot dice 20 / belibige zahl"
-        return t
-
 def flag_sero(state):
     flag_team(state)
     flag_random(state)

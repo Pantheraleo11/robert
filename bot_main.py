@@ -17,7 +17,7 @@ class MyClient(discord.Client):
             return
 
         await message.channel.send(switch.switch(message))
-
+"""
         #help anfragen
         if message.content.startswith("bot help team"):
             await  message.channel.send(funktion.help("team"))
@@ -25,7 +25,7 @@ class MyClient(discord.Client):
             await  message.channel.send(funktion.help("random"))
         elif message.content.startswith("bot help") or message.content.startswith("help"):
             await message.channel.send(funktion.help("help"))
-
+"""
         #team /team wahl
         if message.content.startswith("bot team start") and funktion.flag_team(2) == 1:
             await message.channel.send("Teams werden gesucht")
